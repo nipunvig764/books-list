@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-xs-12">
+    <img src="{{book.imagePath}}" alt="" class="img-responsive">    
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ book.name }}</h1>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-xs-12">
+    <div class="btn-group" appDropdown>
+      <button 
+        type="button"
+        class="btn btn-primary dropdown-toggle">Manage Books<span class="caret"></span>
+      </button> -->
+
+
+
+      <!-- <ul class="dropdown-menu">
+        <li><a href="#">Add to order list</a></li>
+        <li><a href="#">Edit book</a></li>
+        <li><a href="#">Delete book</a></li>
+      </ul> -->
+<!-- 
+    </div>
+  </div>
+</div> -->
+
+
+<div class="row">
+    <div class="col-xs-12">
+      {{ book.description}}
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-12">
+        {{ book.author}}
+      </div>
+    </div>
+  
+    
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group">
+      <li class="list-group-item"
+      *ngFor="let material of book.material">
+        {{ material.name }} ({{ material.amount }}) 
+      </li>
+    </ul>
+  </div>
+</div>
+
+<br>
+<div class="row">
+  <div class="col-xs-12">
+  <div class="btn-group btn-group-md">
+    <button type="button" class="btn btn-danger" (click)="onAddToOrderList()">Add To order list</button>
+    <button type="button" class="btn btn-primary" (click)="onEditBook()">Edit book</button>
+    <button type="button" class="btn btn-danger" (click)="onDeleteBook()">Delete Book</button>
+  </div>
+  </div>
+</div>

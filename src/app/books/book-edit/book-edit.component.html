@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="submit" class="btn btn-success"
+          [disabled]="!bookForm.valid">Save</button>
+          <button type="button" class="btn btn-success" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+             type="text"
+             id="name"
+             formControlName="name"
+             class="form-control">
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name"> Author name</label>
+              <input
+               type="text"
+               id="name"
+               formControlName="name"
+               class="form-control">
+              
+            </div>
+          </div>
+        </div>
+  
+      
+
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="imagePath">Image Url</label>
+              <input
+               type="text"
+               id="imagePath"
+               formControlName="imagePath"
+               class="form-control"
+               #imagePath>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+              <div>
+                <img [src]="imagePath.value" class="img-responsive">
+                
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+              <div>
+                <label for="description">Description</label>
+                <textarea
+                  type="text"
+                  id="description"
+                  class="form-control"
+                  formControlName="description"
+                  rows="6"></textarea>
+                
+              </div>
+            </div>
+        </div>
+         <br>
+        <div class="row">
+            <div class="col-xs-12" formArrayName="materials">
+              <div 
+              class="row"
+              *ngFor="let materialCtrl of book.Form.get('materials').controls; let i = index"
+              [formGroupName]="i"
+              style="margin-top:10px;">
+                <div class="col-xs-8">
+                  <input type="text"
+                  class="form-control">
+                </div>
+                <div class="col-xs-2">
+                  <button class="btn btn-danger">
+                    X
+                  </button>
+                </div>
+              </div>
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <button class="btn btn-success" (click)="onAddMaterial()">Add Materials</button>
+                  </div>
+                </div>
+                
+                
+              
+            </div>
+        </div>
+    </form>
+  </div>
+</div>
